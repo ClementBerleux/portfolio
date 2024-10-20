@@ -1,0 +1,329 @@
+:root {
+    --text-color: hsl(180, 20%, 90%);
+    --titre-color: hsl(230, 80%, 65%);
+    --lien-color: hsl(200, 80%, 60%);
+    --background-color: hsl(190, 20%, 5%);
+    --menuIcone-size: 3rem;
+    --border-color: hsl(200, 0%, 30%);
+    --border-taille: 1px;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+body {
+    display: flex;
+    width: min(100%, 1200px);
+}
+
+nav {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: var(--background-color);
+    border-radius: 0.5em 0 0 0.5em;
+    /* box-shadow: 0 0 1px var(--text-color); */
+    border: var(--border-taille) var(--border-color) solid;
+    z-index: 2;
+}
+
+@media (max-width: 800px) {
+    nav {
+        flex-direction: row;
+        top: 0;
+        transform: translateY(0);
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 0 0 0.5em 0.5em;
+    }
+}
+
+nav a {
+    border-top: var(--border-taille) var(--border-color) solid;
+}
+
+@media (max-width: 800px) {
+    nav a {
+        border-left: var(--border-taille) var(--border-color) solid;
+    }
+}
+
+nav a:first-child {
+    border-top: none;
+}
+
+.navItem {
+    display: flex;
+    justify-content: center;
+    padding: 0.3rem;
+    color: transparent;
+    stroke: var(--text-color);
+    fill: transparent;
+    cursor: pointer;
+}
+
+.navItem:hover {
+    color: var(--text-color);
+    fill: var(--text-color);
+    stroke: transparent;
+}
+
+.navItem svg {
+    width: var(--menuIcone-size);
+    height: var(--menuIcone-size);
+}
+
+nav a {
+    color: var(--text-color);
+}
+
+.emplacementNav {
+    width: var(--menuIcone-size);
+    margin: 0.3rem;
+}
+
+.contenu {
+    flex: 1;
+    isolation: isolate;
+    z-index: 1;
+}
+
+#accueil {
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #1A1A1A, #1A2A3A);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    align-items: center;
+    justify-items: center;
+    padding: 2rem;
+}
+
+@media (max-width: 800px) {
+    #accueil {
+        padding-top: 5rem;
+        grid-template-columns: 1fr;
+    }
+}
+
+#accueil svg {
+    width: 400px;
+    height: 80px;
+}
+
+#accueil svg text {
+    stroke: var(--text-color);
+    stroke-width: 1;
+    text-anchor: middle;
+    font-weight: 1000;
+    animation: 40s infinite dessin both;
+    fill: transparent;
+}
+
+.avatar {
+    width: 150px;
+    border-radius: 1rem;
+}
+
+#accueil p {
+    grid-column: span 2;
+}
+
+@media (max-width: 800px) {
+    #accueil p {
+        grid-column: 1;
+    }
+}
+
+#projets {
+    background: linear-gradient(to top right, #1A1A1A, #1A2A3A);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    padding: 2em 1em;
+}
+
+@media (max-width: 800px) {
+    #projets {
+        grid-template-columns: 1fr;
+        padding-top: 5rem;
+    }
+}
+
+.card {
+    border-radius: 0.5em;
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 4;
+    align-items: center;
+    gap: 1em;
+    padding: 1em;
+    border: var(--border-taille) var(--border-color) solid;
+    background: linear-gradient(to top, #1A1A1A, #2A2A2A);
+}
+
+h3 {
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: 0 0 5px black;
+    color: var(--titre-color);
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5em;
+    border: var(--border-taille) var(--border-color) solid;
+}
+
+.card img:hover {
+    animation: grossi 0.5s both;
+}
+
+@keyframes grossi {
+
+    0%,
+    100% {
+        scale: 1;
+    }
+
+    50% {
+        scale: 0.95;
+    }
+}
+
+p {
+    text-align: justify;
+    align-self: baseline;
+}
+
+a {
+    color: var(--lien-color);
+    text-decoration: none;
+    text-align: center;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+    background-color: inherit;
+    border: none;
+    /* border: 1px red solid; */
+}
+
+@keyframes dessin {
+
+    0%,
+    1% {
+        stroke-dashoffset: 20%;
+        stroke-dasharray: 0 30%;
+        transform: translateY(0);
+    }
+
+    10%,
+    12% {
+        stroke-dashoffset: -20%;
+        stroke-dasharray: 30% 0%;
+    }
+
+    20% {
+        stroke-dashoffset: 20%;
+        stroke-dasharray: 0 30%;
+        transform: translateY(0);
+    }
+
+    21% {
+        stroke-dashoffset: 20%;
+        stroke-dasharray: 0 30%;
+        transform: translateY(-200%);
+    }
+
+    30%,
+    32% {
+        stroke-dashoffset: -20%;
+        stroke-dasharray: 30% 0%;
+    }
+
+    40% {
+        stroke-dashoffset: 20%;
+        stroke-dasharray: 0 30%;
+        transform: translateY(-200%);
+    }
+
+    41% {
+        stroke-dashoffset: 20%;
+        stroke-dasharray: 0 30%;
+        transform: translateY(-400%);
+    }
+
+    50%,
+    52% {
+        stroke-dashoffset: -20%;
+        stroke-dasharray: 30% 0%;
+    }
+
+    60% {
+        stroke-dashoffset: 20%;
+        stroke-dasharray: 0 30%;
+        transform: translateY(-400%);
+    }
+
+    61% {
+        stroke-dashoffset: 20%;
+        stroke-dasharray: 0 30%;
+        transform: translateY(-600%);
+    }
+
+    70%,
+    72% {
+        stroke-dashoffset: -20%;
+        stroke-dasharray: 30% 0%;
+    }
+
+    80% {
+        stroke-dashoffset: 20%;
+        stroke-dasharray: 0 30%;
+        transform: translateY(-600%);
+    }
+
+    81% {
+        stroke-dashoffset: 20%;
+        stroke-dasharray: 0 30%;
+        transform: translateY(-800%);
+    }
+
+    90%,
+    92% {
+        stroke-dashoffset: -20%;
+        stroke-dasharray: 30% 0%;
+    }
+
+    100% {
+        stroke-dashoffset: 20%;
+        stroke-dasharray: 0 30%;
+        transform: translateY(-800%);
+    }
+}
