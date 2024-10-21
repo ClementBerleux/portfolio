@@ -1,5 +1,6 @@
 :root {
-    --text-color: hsl(180, 20%, 90%);
+    --text-color: hsl(180, 20%, 80%);
+    --text-gras-color: hsl(180, 20%, 100%);
     --titre-color: hsl(230, 80%, 65%);
     --lien-color: hsl(200, 80%, 60%);
     --background-color: hsl(190, 20%, 5%);
@@ -78,14 +79,14 @@ nav a:first-child {
     justify-content: center;
     padding: 0.3rem;
     color: transparent;
-    stroke: var(--text-color);
+    stroke: var(--text-gras-color);
     fill: transparent;
     cursor: pointer;
 }
 
 .navItem:hover {
-    color: var(--text-color);
-    fill: var(--text-color);
+    color: var(--text-gras-color);
+    fill: var(--text-gras-color);
     stroke: transparent;
 }
 
@@ -133,7 +134,7 @@ nav a {
 }
 
 #accueil svg text {
-    stroke: var(--text-color);
+    stroke: var(--text-gras-color);
     stroke-width: 1;
     text-anchor: middle;
     font-weight: 1000;
@@ -216,6 +217,10 @@ h3 {
 p {
     text-align: justify;
     align-self: baseline;
+}
+
+b {
+    color: var(--text-gras-color);
 }
 
 a {
