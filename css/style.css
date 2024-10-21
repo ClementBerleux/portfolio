@@ -99,6 +99,11 @@ nav a {
     color: var(--text-color);
 }
 
+nav button {
+    background-color: inherit;
+    border: none;
+}
+
 .emplacementNav {
     width: var(--menuIcone-size);
     margin: 0.3rem;
@@ -233,10 +238,16 @@ a:hover {
     text-decoration: underline;
 }
 
-button {
-    background-color: inherit;
-    border: none;
-    /* border: 1px red solid; */
+.contact {
+    background: linear-gradient(to top, #1A1A1A, #2A2A2A);
+    color: var(--text-color);
+    border-image: conic-gradient(cyan 10%, blue 55%, cyan 90%) 1;
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+.contact:hover {
+    background: black;
 }
 
 @keyframes dessin {
@@ -248,8 +259,8 @@ button {
         transform: translateY(0);
     }
 
-    10%,
-    12% {
+    8%,
+    13% {
         stroke-dashoffset: -20%;
         stroke-dasharray: 30% 0%;
     }
@@ -266,8 +277,8 @@ button {
         transform: translateY(-200%);
     }
 
-    30%,
-    32% {
+    28%,
+    33% {
         stroke-dashoffset: -20%;
         stroke-dasharray: 30% 0%;
     }
@@ -284,8 +295,8 @@ button {
         transform: translateY(-400%);
     }
 
-    50%,
-    52% {
+    48%,
+    53% {
         stroke-dashoffset: -20%;
         stroke-dasharray: 30% 0%;
     }
@@ -302,8 +313,8 @@ button {
         transform: translateY(-600%);
     }
 
-    70%,
-    72% {
+    68%,
+    73% {
         stroke-dashoffset: -20%;
         stroke-dasharray: 30% 0%;
     }
@@ -320,8 +331,8 @@ button {
         transform: translateY(-800%);
     }
 
-    90%,
-    92% {
+    88%,
+    93% {
         stroke-dashoffset: -20%;
         stroke-dasharray: 30% 0%;
     }
