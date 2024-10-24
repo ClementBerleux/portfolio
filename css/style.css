@@ -1,12 +1,14 @@
 :root {
-    --text-color: hsl(180, 20%, 80%);
-    --text-gras-color: hsl(180, 20%, 100%);
-    --titre-color: hsl(230, 80%, 65%);
-    --lien-color: hsl(200, 80%, 60%);
-    --background-color: hsl(190, 20%, 5%);
-    --menuIcone-size: 3rem;
-    --border-color: hsl(200, 0%, 30%);
-    --border-taille: 1px;
+    --couleur-texte: hsl(180, 20%, 80%);
+    --couleur-texte-gras: hsl(180, 20%, 100%);
+    --couleur-titre: hsl(230, 80%, 65%);
+    --couleur-lien: hsl(200, 80%, 60%);
+    --couleur-background: hsl(190, 20%, 5%);
+    --taille-menuIcone: 3rem;
+    --couleur-bordure: hsl(200, 0%, 30%);
+    --taille-bordure: 1px;
+    --couleur-gradient-1: hsl(200, 20%, 10%);
+    --couleur-gradient-2: hsl(200, 20%, 5%);
 }
 
 *,
@@ -15,6 +17,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    /* outline: 1px red solid; */
 }
 
 html {
@@ -25,13 +28,8 @@ html {
     justify-content: center;
     align-items: center;
     position: relative;
-    background-color: var(--background-color);
-    color: var(--text-color);
-}
-
-body {
-    display: flex;
-    width: min(100%, 1200px);
+    background-color: var(--couleur-background);
+    color: var(--couleur-texte);
 }
 
 nav {
@@ -41,11 +39,12 @@ nav {
     justify-content: center;
     align-items: center;
     top: 50%;
+    left: 200px;
     transform: translateY(-50%);
-    background-color: var(--background-color);
+    background-color: var(--couleur-background);
     border-radius: 0.5em 0 0 0.5em;
-    /* box-shadow: 0 0 1px var(--text-color); */
-    border: var(--border-taille) var(--border-color) solid;
+    /* box-shadow: 0 0 1px var(--couleur-texte); */
+    border: var(--taille-bordure) var(--couleur-bordure) solid;
     z-index: 2;
 }
 
@@ -61,12 +60,12 @@ nav {
 }
 
 nav a {
-    border-top: var(--border-taille) var(--border-color) solid;
+    border-top: var(--taille-bordure) var(--couleur-bordure) solid;
 }
 
 @media (max-width: 800px) {
     nav a {
-        border-left: var(--border-taille) var(--border-color) solid;
+        border-left: var(--taille-bordure) var(--couleur-bordure) solid;
     }
 }
 
@@ -79,24 +78,24 @@ nav a:first-child {
     justify-content: center;
     padding: 0.3rem;
     color: transparent;
-    stroke: var(--text-gras-color);
+    stroke: var(--couleur-texte-gras);
     fill: transparent;
     cursor: pointer;
 }
 
 .navItem:hover {
-    color: var(--text-gras-color);
-    fill: var(--text-gras-color);
+    color: var(--couleur-texte-gras);
+    fill: var(--couleur-texte-gras);
     stroke: transparent;
 }
 
 .navItem svg {
-    width: var(--menuIcone-size);
-    height: var(--menuIcone-size);
+    width: var(--taille-menuIcone);
+    height: var(--taille-menuIcone);
 }
 
 nav a {
-    color: var(--text-color);
+    color: var(--couleur-texte);
 }
 
 nav button {
@@ -104,20 +103,27 @@ nav button {
     border: none;
 }
 
-.emplacementNav {
-    width: var(--menuIcone-size);
-    margin: 0.3rem;
-}
-
-.contenu {
-    flex: 1;
+.conteneur {
+    display: flex;
+    justify-content: center;
+    width: min(100%, 1100px);
+    padding-inline: var(--taille-menuIcone);
+    margin-inline: auto;
+    background: linear-gradient(to bottom right, var(--couleur-gradient-1), var(--couleur-gradient-1));
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
     isolation: isolate;
     z-index: 1;
 }
 
+.emplacementNav {
+    width: var(--taille-menuIcone);
+    margin: 0.5rem;
+}
+
+.contenu {}
+
 #accueil {
     min-height: 100vh;
-    background: linear-gradient(to bottom right, #1A1A1A, #1A2A3A);
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1em;
@@ -135,11 +141,11 @@ nav button {
 
 #accueil svg {
     width: 400px;
-    height: 80px;
+    height: 70px;
 }
 
 #accueil svg text {
-    stroke: var(--text-gras-color);
+    stroke: var(--couleur-texte-gras);
     stroke-width: 1;
     text-anchor: middle;
     font-weight: 1000;
@@ -163,7 +169,6 @@ nav button {
 }
 
 #projets {
-    background: linear-gradient(to top right, #1A1A1A, #1A2A3A);
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1em;
@@ -185,7 +190,7 @@ nav button {
     align-items: center;
     gap: 1em;
     padding: 1em;
-    border: var(--border-taille) var(--border-color) solid;
+    border: var(--taille-bordure) var(--couleur-bordure) solid;
     background: linear-gradient(to top, #1A1A1A, #2A2A2A);
 }
 
@@ -193,14 +198,14 @@ h3 {
     text-align: center;
     text-transform: uppercase;
     text-shadow: 0 0 5px black;
-    color: var(--titre-color);
+    color: var(--couleur-titre);
 }
 
 .card img {
     max-width: 100%;
     height: auto;
     border-radius: 0.5em;
-    border: var(--border-taille) var(--border-color) solid;
+    border: var(--taille-bordure) var(--couleur-bordure) solid;
 }
 
 .card img:hover {
@@ -225,11 +230,11 @@ p {
 }
 
 b {
-    color: var(--text-gras-color);
+    color: var(--couleur-texte-gras);
 }
 
 a {
-    color: var(--lien-color);
+    color: var(--couleur-lien);
     text-decoration: none;
     text-align: center;
 }
@@ -240,7 +245,7 @@ a:hover {
 
 .contact {
     background: linear-gradient(to top, #1A1A1A, #2A2A2A);
-    color: var(--text-color);
+    color: var(--couleur-texte);
     border-image: conic-gradient(cyan 10%, blue 55%, cyan 90%) 1;
     padding: 0.5em;
     cursor: pointer;
