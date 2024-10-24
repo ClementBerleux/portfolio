@@ -1,7 +1,7 @@
 :root {
     --couleur-texte: hsl(180, 20%, 80%);
     --couleur-texte-gras: hsl(180, 20%, 100%);
-    --couleur-titre: hsl(230, 80%, 65%);
+    --couleur-titre: hsl(225, 90%, 65%);
     --couleur-lien: hsl(200, 80%, 60%);
     --couleur-background: hsl(190, 20%, 5%);
     --taille-menuIcone: 3rem;
@@ -9,6 +9,7 @@
     --taille-bordure: 1px;
     --couleur-gradient-1: hsl(200, 20%, 10%);
     --couleur-gradient-2: hsl(200, 20%, 5%);
+    --angle-bordure: 0.5rem;
 }
 
 *,
@@ -24,12 +25,34 @@ html {
     scroll-behavior: smooth;
     font-size: 1.5rem;
     font-family: sans-serif;
+    line-height: 1.4em;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     background-color: var(--couleur-background);
     color: var(--couleur-texte);
+}
+
+.conteneur {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: min(100%, 1100px);
+    padding-inline: var(--taille-menuIcone);
+    margin-inline: auto;
+    isolation: isolate;
+}
+
+@media (max-width: 850px) {
+    .conteneur {
+        padding-inline: 1rem;
+    }
+}
+
+.contenu {
+    background: linear-gradient(to bottom right, var(--couleur-gradient-1), var(--couleur-gradient-1));
+    mask-image: linear-gradient(to right, transparent 0%, black 4%, black 96%, transparent 100%);
+    z-index: 1;
 }
 
 nav {
@@ -39,38 +62,41 @@ nav {
     justify-content: center;
     align-items: center;
     top: 50%;
-    left: 200px;
     transform: translateY(-50%);
+    left: 0;
     background-color: var(--couleur-background);
-    border-radius: 0.5em 0 0 0.5em;
+    border-radius: 0 var(--angle-bordure) var(--angle-bordure) 0;
     /* box-shadow: 0 0 1px var(--couleur-texte); */
     border: var(--taille-bordure) var(--couleur-bordure) solid;
     z-index: 2;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
     nav {
         flex-direction: row;
         top: 0;
         transform: translateY(0);
         left: 50%;
         transform: translateX(-50%);
-        border-radius: 0 0 0.5em 0.5em;
+        border-radius: 0 0 var(--angle-bordure) var(--angle-bordure);
     }
 }
 
 nav a {
     border-top: var(--taille-bordure) var(--couleur-bordure) solid;
+    border-left: none;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
     nav a {
         border-left: var(--taille-bordure) var(--couleur-bordure) solid;
+        border-top: none;
     }
 }
 
 nav a:first-child {
     border-top: none;
+    border-left: none;
 }
 
 .navItem {
@@ -103,36 +129,17 @@ nav button {
     border: none;
 }
 
-.conteneur {
-    display: flex;
-    justify-content: center;
-    width: min(100%, 1100px);
-    padding-inline: var(--taille-menuIcone);
-    margin-inline: auto;
-    background: linear-gradient(to bottom right, var(--couleur-gradient-1), var(--couleur-gradient-1));
-    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
-    isolation: isolate;
-    z-index: 1;
-}
-
-.emplacementNav {
-    width: var(--taille-menuIcone);
-    margin: 0.5rem;
-}
-
-.contenu {}
-
 #accueil {
     min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1em;
+    gap: 3em;
     align-items: center;
     justify-items: center;
-    padding: 2rem;
+    padding: 3rem;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
     #accueil {
         padding-top: 5rem;
         grid-template-columns: 1fr;
@@ -147,6 +154,7 @@ nav button {
 #accueil svg text {
     stroke: var(--couleur-texte-gras);
     stroke-width: 1;
+    stroke-linecap: round;
     text-anchor: middle;
     font-weight: 1000;
     animation: 40s infinite dessin both;
@@ -155,14 +163,14 @@ nav button {
 
 .avatar {
     width: 150px;
-    border-radius: 1rem;
+    border-radius: var(--angle-bordure);
 }
 
 #accueil p {
     grid-column: span 2;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
     #accueil p {
         grid-column: 1;
     }
@@ -172,10 +180,10 @@ nav button {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1em;
-    padding: 2em 1em;
+    padding: 2em;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
     #projets {
         grid-template-columns: 1fr;
         padding-top: 5rem;
@@ -183,7 +191,7 @@ nav button {
 }
 
 .card {
-    border-radius: 0.5em;
+    border-radius: var(--angle-bordure);
     display: grid;
     grid-template-rows: subgrid;
     grid-row: span 4;
@@ -204,7 +212,7 @@ h3 {
 .card img {
     max-width: 100%;
     height: auto;
-    border-radius: 0.5em;
+    border-radius: var(--angle-bordure);
     border: var(--taille-bordure) var(--couleur-bordure) solid;
 }
 
@@ -244,15 +252,37 @@ a:hover {
 }
 
 .contact {
-    background: linear-gradient(to top, #1A1A1A, #2A2A2A);
+    background: black;
     color: var(--couleur-texte);
-    border-image: conic-gradient(cyan 10%, blue 55%, cyan 90%) 1;
-    padding: 0.5em;
+    /* border-image: conic-gradient(from var(--gradient-angle), blue 50%, cyan 100%) 1; */
+    padding: 0.5em 1em;
+    font: inherit;
     cursor: pointer;
+    /* animation: rotation 8s linear infinite; */
+    border: none;
+    border-radius: var(--angle-bordure);
+    border: var(--taille-bordure) black solid;
+}
+
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes rotation {
+    0% {
+        --gradient-angle: 0deg;
+    }
+
+    100% {
+        --gradient-angle: 360deg;
+    }
 }
 
 .contact:hover {
-    background: black;
+    background: linear-gradient(to top, #2A2A2A, #151515);
+    border: var(--taille-bordure) var(--couleur-bordure) solid;
 }
 
 @keyframes dessin {
