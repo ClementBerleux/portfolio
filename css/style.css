@@ -159,7 +159,6 @@ nav button {
 
 #accueil svg text {
     stroke: var(--couleur-texte-gras);
-    stroke-width: 1;
     stroke-linecap: round;
     text-anchor: middle;
     font-weight: 1000;
@@ -293,11 +292,15 @@ a:hover {
 
 @keyframes dessin {
 
-    0%,
-    1% {
+    0% {
+        stroke-width: 0;
         stroke-dashoffset: 20%;
         stroke-dasharray: 0 30%;
         transform: translateY(0);
+    }
+
+    1% {
+        stroke-width: 1;
     }
 
     8%,
@@ -306,16 +309,26 @@ a:hover {
         stroke-dasharray: 30% 0%;
     }
 
+    19% {
+        stroke-width: 1;
+    }
+
     20% {
+        stroke-width: 0;
         stroke-dashoffset: 20%;
         stroke-dasharray: 0 30%;
         transform: translateY(0);
     }
 
     21% {
+        stroke-width: 0;
         stroke-dashoffset: 20%;
         stroke-dasharray: 0 30%;
         transform: translateY(-200%);
+    }
+
+    22% {
+        stroke-width: 1;
     }
 
     28%,
@@ -324,16 +337,26 @@ a:hover {
         stroke-dasharray: 30% 0%;
     }
 
+    39% {
+        stroke-width: 1;
+    }
+
     40% {
+        stroke-width: 0;
         stroke-dashoffset: 20%;
         stroke-dasharray: 0 30%;
         transform: translateY(-200%);
     }
 
     41% {
+        stroke-width: 0;
         stroke-dashoffset: 20%;
         stroke-dasharray: 0 30%;
         transform: translateY(-400%);
+    }
+
+    42% {
+        stroke-width: 1;
     }
 
     48%,
@@ -342,16 +365,26 @@ a:hover {
         stroke-dasharray: 30% 0%;
     }
 
+    59% {
+        stroke-width: 1;
+    }
+
     60% {
+        stroke-width: 0;
         stroke-dashoffset: 20%;
         stroke-dasharray: 0 30%;
         transform: translateY(-400%);
     }
 
     61% {
+        stroke-width: 0;
         stroke-dashoffset: 20%;
         stroke-dasharray: 0 30%;
         transform: translateY(-600%);
+    }
+
+    62% {
+        stroke-width: 1;
     }
 
     68%,
@@ -360,16 +393,26 @@ a:hover {
         stroke-dasharray: 30% 0%;
     }
 
+    79% {
+        stroke-width: 1;
+    }
+
     80% {
+        stroke-width: 0;
         stroke-dashoffset: 20%;
         stroke-dasharray: 0 30%;
         transform: translateY(-600%);
     }
 
     81% {
+        stroke-width: 0;
         stroke-dashoffset: 20%;
         stroke-dasharray: 0 30%;
         transform: translateY(-800%);
+    }
+
+    82% {
+        stroke-width: 1;
     }
 
     88%,
@@ -378,7 +421,12 @@ a:hover {
         stroke-dasharray: 30% 0%;
     }
 
+    99% {
+        stroke-width: 1;
+    }
+
     100% {
+        stroke-width: 0;
         stroke-dashoffset: 20%;
         stroke-dasharray: 0 30%;
         transform: translateY(-800%);
