@@ -204,7 +204,7 @@ nav button {
     gap: 1em;
     padding: 1em;
     border: var(--taille-bordure) var(--couleur-bordure) solid;
-    background: linear-gradient(to top, #1A1A1A, #2A2A2A);
+    background: linear-gradient(to bottom, hsl(200, 100%, 5%), hsl(200, 100%, 10%), hsl(200, 100%, 5%));
 }
 
 h3 {
