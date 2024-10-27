@@ -4,12 +4,18 @@
     --couleur-titre: hsl(225, 90%, 65%);
     --couleur-lien: hsl(200, 80%, 60%);
     --couleur-background: hsl(190, 20%, 5%);
-    --taille-menuIcone: 3rem;
+    --taille-menuIcone: 5rem;
     --couleur-bordure: hsl(200, 0%, 30%);
     --taille-bordure: 1px;
     --couleur-gradient-1: hsl(200, 20%, 10%);
     --couleur-gradient-2: hsl(200, 20%, 5%);
     --angle-bordure: 0.5rem;
+}
+
+@media (max-width: 925px) {
+    :root {
+        --taille-menuIcone: 3rem;
+    }
 }
 
 *,
@@ -23,35 +29,33 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: 1.5rem;
-    font-family: sans-serif;
-    line-height: 1.4em;
+}
+
+body {
+    position: relative;
+    width: min(100%, 1200px);
+    padding-inline: var(--taille-menuIcone);
+    margin-inline: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    isolation: isolate;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+    line-height: 1.4em;
     background-color: var(--couleur-background);
     color: var(--couleur-texte);
 }
 
-.conteneur {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    width: min(100%, 1100px);
-    padding-inline: var(--taille-menuIcone);
-    margin-inline: auto;
-    isolation: isolate;
-}
-
 @media (max-width: 925px) {
-    .conteneur {
-        padding-right: 0;
+    body {
+        padding-right: 0.5rem;
     }
 }
 
 @media (max-width: 855px) {
-    .conteneur {
-        padding-inline: 1rem;
+    body {
+        padding-left: 0.5rem;
     }
 }
 
@@ -147,14 +151,10 @@ nav button {
 
 @media (max-width: 855px) {
     #accueil {
-        padding-top: 5rem;
+        padding-top: calc(var(--taille-menuIcone) + 3rem);
+        padding-inline: 2rem;
         grid-template-columns: 1fr;
     }
-}
-
-#accueil svg {
-    width: 400px;
-    height: 70px;
 }
 
 #accueil svg text {
@@ -167,7 +167,7 @@ nav button {
 }
 
 .avatar {
-    width: 150px;
+    max-width: 150px;
     border-radius: var(--angle-bordure);
 }
 
@@ -184,14 +184,15 @@ nav button {
 #projets {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1em;
-    padding: 2em;
+    gap: 2rem;
+    padding: 2rem 3rem;
 }
 
 @media (max-width: 855px) {
     #projets {
         grid-template-columns: 1fr;
-        padding-top: 5rem;
+        padding-top: calc(var(--taille-menuIcone) + 3rem);
+        padding-inline: 2rem;
     }
 }
 
@@ -324,7 +325,7 @@ a:hover {
         stroke-width: 0;
         stroke-dashoffset: 20%;
         stroke-dasharray: 0 30%;
-        transform: translateY(-200%);
+        transform: translateY(-30px);
     }
 
     22% {
@@ -345,14 +346,14 @@ a:hover {
         stroke-width: 0;
         stroke-dashoffset: 20%;
         stroke-dasharray: 0 30%;
-        transform: translateY(-200%);
+        transform: translateY(-30px);
     }
 
     41% {
         stroke-width: 0;
         stroke-dashoffset: 20%;
         stroke-dasharray: 0 30%;
-        transform: translateY(-400%);
+        transform: translateY(-60px);
     }
 
     42% {
@@ -373,14 +374,14 @@ a:hover {
         stroke-width: 0;
         stroke-dashoffset: 20%;
         stroke-dasharray: 0 30%;
-        transform: translateY(-400%);
+        transform: translateY(-60px);
     }
 
     61% {
         stroke-width: 0;
         stroke-dashoffset: 20%;
         stroke-dasharray: 0 30%;
-        transform: translateY(-600%);
+        transform: translateY(-90px);
     }
 
     62% {
@@ -401,14 +402,14 @@ a:hover {
         stroke-width: 0;
         stroke-dashoffset: 20%;
         stroke-dasharray: 0 30%;
-        transform: translateY(-600%);
+        transform: translateY(-90px);
     }
 
     81% {
         stroke-width: 0;
         stroke-dashoffset: 20%;
         stroke-dasharray: 0 30%;
-        transform: translateY(-800%);
+        transform: translateY(-120px);
     }
 
     82% {
@@ -429,6 +430,6 @@ a:hover {
         stroke-width: 0;
         stroke-dashoffset: 20%;
         stroke-dasharray: 0 30%;
-        transform: translateY(-800%);
+        transform: translateY(-120px);
     }
 }
