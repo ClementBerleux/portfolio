@@ -159,7 +159,7 @@ nav button {
 
 #accueil svg text {
     stroke: var(--couleur-texte-gras);
-    stroke-linecap: round;
+    stroke-linecap: butt;
     text-anchor: middle;
     font-weight: 1000;
     animation: 40s infinite dessin both;
